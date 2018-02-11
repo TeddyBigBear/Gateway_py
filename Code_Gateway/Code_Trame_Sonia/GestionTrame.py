@@ -51,7 +51,7 @@ def Decoupage_Trame_Station(ligne):
 		if (ligne[i] == "H"):
 			hygrometrie = ligne[i+1:i+3]
 			hygrometrieDec = int(hygrometrie, 16)
-			donneesTrame.append("hygro="+str(hygrometrieDec))
+			donneesTrame.append("hygro_capteur="+str(hygrometrieDec))
 
 		if (ligne[i] == "E"):
 			pluviometrie = ligne[i+1:i+3]
@@ -100,12 +100,7 @@ def Decoupage_Trame_RucherInterne(ligne):
 		if (ligne[i] == "H"):
 			hygrometrie = ligne[i+1:i+3]
 			hygrometrieDec = int(hygrometrie, 16)
-			donneesTrame.append("hygro="+str(hygrometrieDec))
-
-		if (ligne[i] == "P"):
-			masseBalance = ligne[i+1:i+3]
-			masseBalance = int(masseBalance, 16)
-			donneesTrame.append("masse="+str(masseBalance))
+			donneesTrame.append("hygro_capteur="+str(hygrometrieDec))
 
 		if (ligne[i] == "M"):
 			temperatureBalance = ligne[i+1:i+3]
@@ -121,6 +116,11 @@ def Decoupage_Trame_RucherInterne(ligne):
 			tauxCO2 = ligne[i+1:i+5]
 			tauxCO2Dec = int(tauxCO2, 16)
 			donneesTrame.append("co2="+str(tauxCO2Dec))
+
+		if (ligne[i] == "N"):
+			nour = ligne[i+1:i+3]
+			nour = int(nour, 16)
+			donneesTrame.append("nour="+str(nour))
 
 	File_WriteLog(pathLog, 2, DataEmpty)
 	return donneesTrame
@@ -133,42 +133,10 @@ def Decoupage_Trame_RucherExterne(ligne):
 
 	for i in range(16,len(ligne)):
 
-		if (ligne[i] == "B"):
-			tensionBatterie = ligne[i+1:i+3]
-			tensionBatterieDec = int(tensionBatterie, 16)
-			tensionBatterieDec = truediv(tensionBatterieDec,10)
-			donneesTrame.append("vbat="+str(tensionBatterieDec))
-
-		if (ligne[i] == "T"):
-			temperature = ligne[i+1:i+5]
-			temperatureDec = int(temperature, 16)
-			temperatureDec = truediv(temperatureDec,10)
-			donneesTrame.append("temp_capteur="+str(temperatureDec))
-
-		if (ligne[i] == "H"):
-			hygrometrie = ligne[i+1:i+3]
-			hygrometrieDec = int(hygrometrie, 16)
-			donneesTrame.append("hygro="+str(hygrometrieDec))
-
 		if (ligne[i] == "P"):
 			masseBalance = ligne[i+1:i+3]
 			masseBalance = int(masseBalance, 16)
 			donneesTrame.append("masse="+str(masseBalance))
-
-		if (ligne[i] == "M"):
-			temperatureBalance = ligne[i+1:i+3]
-			temperatureBalanceDec = int(temperatureBalance, 16)
-			donneesTrame.append("temp_balance="+str(temperatureBalanceDec))
-
-		if (ligne[i] == "V"):
-			vibration = ligne[i+1:i+3]
-			vibrationDec = int(vibration, 16)
-			donneesTrame.append("vib="+str(vibrationDec))
-
-		if (ligne[i] == "C"):
-			tauxCO2 = ligne[i+1:i+5]
-			tauxCO2Dec = int(tauxCO2, 16)
-			donneesTrame.append("co2="+str(tauxCO2Dec))
 
 	File_WriteLog(pathLog, 2, DataEmpty)
 	return donneesTrame
@@ -179,6 +147,7 @@ def Def_Trame_PHP(adresseMac,typeEmmetteur,donneesTrame):
 	date=datetime.datetime.now()
 	requetePHP=pathSiteWeb+"add.php?"+"mac="+adresseMac+"&date="+str(date.date())+"&heure="+str(date.time())
 
+	#construction de la trame PHP avec les données recues
 	for data in donneesTrame:
 		requetePHP+="&"+data
 
@@ -187,18 +156,32 @@ def Def_Trame_PHP(adresseMac,typeEmmetteur,donneesTrame):
 	return requetePHP
 
 def Gestion_Trame(ligne):
-	adresseMac = ligne[0:12]
-	typeEmetteur = ligne[12:14]
+	typeEmetteur = ligne[0:2]
+
+	#TO DO : gérer les trames de la ruche externe et interne
+	#decoupage et affectation de la bonne adresse mac
+	#verifier les requetes php
+	if typeEmetteur == "01" :
+		adresseMac = ligne[2:15]
+		donneesTrame=Decoupage_Trame_Station(ligne)
+	elif typeEmetteur == "02" :
+		adresseMac = ligne[2:14]
+		adresseMac2 = ligne[16:28]
+		print typeEmetteur
+		print adresseMac
+		print adresseMac2
+		donneesTrame=Decoupage_Trame_RucherInterne(ligne)
+		donneesTrame2=Decoupage_Trame_RucherExterne(ligne)
+	elif typeEmetteur == "03" :
+		adresseMac = ligne[2:14]
+		adresseMac2 = ligne[16:28]
+		donneesTrame=Decoupage_Trame_RucherExterne(ligne)
+
+
 	gestionErreur = ligne[14:16]
 
 	File_WriteLog(pathLog, 5, ligne)
 
-	if typeEmetteur == "01" :
-		donneesTrame=Decoupage_Trame_Station(ligne)
-	elif typeEmetteur == "02" :
-		donneesTrame=Decoupage_Trame_RucherInterne(ligne)
-	elif typeEmetteur == "03" :
-		donneesTrame=Decoupage_Trame_RucherExterne(ligne)
 
 	requetePHP=Def_Trame_PHP(adresseMac,typeEmetteur,donneesTrame)
 	print requetePHP
