@@ -14,8 +14,8 @@ from operator import truediv
 from FichierGestion import *
 
 #constantes
-path="/Users/utilisateur/Documents/Polytech_EII_3/Projet Elec/CodesPython/trameExemple.txt"
-pathLog="/Users/utilisateur/Documents/Polytech_EII_3/Projet Elec/CodesPython/log.txt"
+path="trameExemple.txt"
+pathLog="log.txt"
 DataEmpty=""
 pathSiteWeb="http://wwww.xxx.xxx/"
 requetePHP=""
@@ -76,7 +76,6 @@ def Decoupage_Trame_Station(ligne):
 
 	File_WriteLog(pathLog, 2, DataEmpty)
 	return donneesTrame
-	#print tensionBatterieDec
 
 def Decoupage_Trame_RucherInterne(ligne):
 	donneesTrame=[]
@@ -124,7 +123,6 @@ def Decoupage_Trame_RucherInterne(ligne):
 
 	File_WriteLog(pathLog, 2, DataEmpty)
 	return donneesTrame
-	#print tensionBatterieDec
 
 def Decoupage_Trame_RucherExterne(ligne):
 	donneesTrame=[]
@@ -140,9 +138,8 @@ def Decoupage_Trame_RucherExterne(ligne):
 
 	File_WriteLog(pathLog, 2, DataEmpty)
 	return donneesTrame
-	#print tensionBatterieDec
 
-def Def_Trame_PHP(adresseMac,typeEmmetteur,donneesTrame):
+def Def_Trame_PHP(adresseMac,donneesTrame):
 	print donneesTrame
 	date=datetime.datetime.now()
 	requetePHP=pathSiteWeb+"add.php?"+"mac="+adresseMac+"&date="+str(date.date())+"&heure="+str(date.time())
@@ -156,38 +153,31 @@ def Def_Trame_PHP(adresseMac,typeEmmetteur,donneesTrame):
 	return requetePHP
 
 def Gestion_Trame(ligne):
+	File_WriteLog(pathLog, 5, ligne)
 	typeEmetteur = ligne[0:2]
 
-	#TO DO : gérer les trames de la ruche externe et interne
-	#decoupage et affectation de la bonne adresse mac
-	#verifier les requetes php
 	if typeEmetteur == "01" :
 		adresseMac = ligne[2:15]
 		donneesTrame=Decoupage_Trame_Station(ligne)
+		requetePHP=Def_Trame_PHP(adresseMac,typeEmetteur,donneesTrame)
 	elif typeEmetteur == "02" :
-		adresseMac = ligne[2:14]
-		adresseMac2 = ligne[16:28]
-		print typeEmetteur
-		print adresseMac
-		print adresseMac2
-		donneesTrame=Decoupage_Trame_RucherInterne(ligne)
-		donneesTrame2=Decoupage_Trame_RucherExterne(ligne)
+		adresseMacRucheInterne = ligne[2:14]
+		adresseMacRucheExterne = ligne[16:28]
+		donneesTrameRucheInterne =Decoupage_Trame_RucherInterne(ligne)
+		requetePHP_RucheInterne =Def_Trame_PHP(adresseMacRucheInterne,donneesTrameRucheInterne)
+		donneesTrameRucheExterne =Decoupage_Trame_RucherExterne(ligne)
+		requetePHP_RucheExterne =Def_Trame_PHP(adresseMacRucheExterne,donneesTrameRucheExterne)
 	elif typeEmetteur == "03" :
-		adresseMac = ligne[2:14]
-		adresseMac2 = ligne[16:28]
-		donneesTrame=Decoupage_Trame_RucherExterne(ligne)
-
+		adresseMacRucheExterne  = ligne[2:14]
+		adresseMacRucheInterne  = ligne[16:28]
+		donneesTrameRucheExterne=Decoupage_Trame_RucherExterne(ligne)
+		requetePHP_RucheExterne=Def_Trame_PHP(adresseMacRucheExterne,donneesTrameRucheExterne)
+		donneesTrameRucheInterne=Decoupage_Trame_RucherInterne(ligne)
+		requetePHP_RucheInterne=Def_Trame_PHP(adresseMacRucheInterne,donneesTrameRucheInterne)
 
 	gestionErreur = ligne[14:16]
 
-	File_WriteLog(pathLog, 5, ligne)
-
-
-	requetePHP=Def_Trame_PHP(adresseMac,typeEmetteur,donneesTrame)
-	print requetePHP
-
 	fichier.close()
-
 
 #main
 fichier=File_Open(path)
