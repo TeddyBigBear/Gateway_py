@@ -1,0 +1,8 @@
+https://github.com/olikraus/u8g2/wiki/u8x8reference // bibliotheques du lecteur OLED
+https://github.com/sandeepmistry/arduino-LoRa/blob/master/API.md // Librairie LoRa radio
+https://github.com/Lora-net/LoRaMac-node/blob/master/src/radio/sx1276/sx1276Regs-LoRa.h // librairie sx1276
+https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ // My LoRa guide
+https://hackaday.io/project/27791-esp32-lora-oled-module // Projet Lora à base de ESP32
+https://robotzero.one/heltec-wifi-lora-32/ // Heltec lora module configuration very useful
+https://github.com/hallard/RadioHead/blob/master/RH_RF95.cpp // point to point lora librarie for rfm95
+
