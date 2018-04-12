@@ -3,7 +3,7 @@
   (general
     (links 22)
     (no_connects 9)
-    (area 78.664999 71.044999 124.535001 128.345001)
+    (area 78.664999 62.954999 131.435001 128.345001)
     (thickness 1.6)
     (drawings 4)
     (tracks 52)
@@ -13,6 +13,12 @@
   )
 
   (page A4)
+  (title_block
+    (title "Sheild Gateway")
+    (rev 1.0)
+    (company Polytech')
+  )
+
   (layers
     (0 F.Cu signal)
     (31 B.Cu signal)
