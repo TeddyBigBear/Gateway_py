@@ -2,6 +2,7 @@
 #include <LoRa.h>
 
 
+
 // WIFI_LoRa_32 ports
 // GPIO5  -- SX1278's SCK
 // GPIO19 -- SX1278's MISO
@@ -26,9 +27,6 @@
 // the OLED used
 U8X8_SSD1306_128X64_NONAME_SW_I2C u8x8(/* clock=*/ 15, /* data=*/ 4, /* reset=*/ 16);
 
-int counter = 0;
-
-char str[5];
 void setup() {
 
   SPI.begin(5, 19, 27, 18);
@@ -65,27 +63,46 @@ void setup() {
   LoRa.setCodingRate4(codingRateDenominator);
 
   u8x8.drawString(0, 1, "LoRa  OK!");
-  delay(5000);
-  
 }
 
 void loop() {
-  Serial.print("Sending packet: ");
-  Serial.println(counter);
-  
-  
-  u8x8.drawString(0, 1, "Sending packet ");
-  itoa(counter,str,10);
-  u8x8.drawString(0, 2, str);
-  
-  
-  // send packet
+
+  // try to parse packet
+  int packetSize = LoRa.parsePacket();
+  if (packetSize) {
+    // received a packet
+    Serial.print("Received packet '");
+    u8x8.drawString(0, 4, "Received packet");
+
+    // read packet
+    string message= "";
+    while (LoRa.available()) {
+      message=message+((char)LoRa.read());
+    }
+    
+    // print RSSI of packet
+    Serial.print("' with RSSI ");
+    Serial.print(LoRa.packetRssi());
+    
+
+     // print SNR of packet
+    Serial.print(" with SNR ");
+    Serial.println(LoRa.packetSnr());
+    sendAck(message);
+  }
+
+}
+void sendAck(String message) {
+  int check = 0;
+  for (int i = 0; i < message.length(); i++) {
+    check += message[i];
+  }
+  // Serial.print("/// ");
   LoRa.beginPacket();
-  LoRa.print("Hello..");
+  LoRa.print(String(check));
   LoRa.endPacket();
-  
-  counter++;
-  
-  
-  delay(3000);
+  Serial.print(message);
+  Serial.print(" ");
+  Serial.print("Ack Sent: ");
+  Serial.println(check);
 }
