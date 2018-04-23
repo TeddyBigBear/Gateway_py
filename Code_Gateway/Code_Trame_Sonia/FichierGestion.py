@@ -25,6 +25,7 @@ def File_Open(path):
 	return fichier
 	#fichier.close()
 
+#pas utilisé encore
 def File_Write(path):
 	with open(path, "a") as fichier:
 		print fichier.write("\ntest ")

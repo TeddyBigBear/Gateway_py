@@ -21,9 +21,33 @@ pathSiteWeb="http://wwww.xxx.xxx/"
 requetePHP=""
 
 #fonctions
+def ConversionDirectionVent(directionVentBrute):
+	switcher = {
+		0: 0,
+        1: 22.5,
+        2: 45,
+        3: 67.5,
+        4: 90,
+        5: 112.5,
+        6: 135,
+        7: 157.5,
+        8: 180,
+        9: 202.5,
+        10: 225,
+        11: 247.5,
+        12: 270,
+        13: 292.5,
+        14: 315,
+        15: 337.5,
+	}
+	return switcher.get(directionVentBrute, "Nombre invalide")
+
+
+#ATTENTION : la taille des données pour chaque paramètre est codé en dur !!! 
 def Decoupage_Trame_Station(ligne):
 	offsetPression = 800
 	offsetSolaire = 120000
+	impulsionPluviometrie = 0.2794
 	donneesTrame=[]
  	
 	donneesTrame.append("type=M")
@@ -56,10 +80,11 @@ def Decoupage_Trame_Station(ligne):
 		if (ligne[i] == "E"):
 			pluviometrie = ligne[i+1:i+3]
 			pluviometrieDec = int(pluviometrie, 16)
+			pluviometrieDec = pluviometrieDec*impulsionPluviometrie
 			donneesTrame.append("pluvio="+str(pluviometrieDec))
 
 		if (ligne[i] == "V"):
-			anemometre = ligne[i+1:i+3]
+			anemometre = ligne[i+1:i+4]
 			anemometreDec = int(anemometre, 16)
 			donneesTrame.append("vent="+str(anemometreDec))
 
@@ -70,8 +95,10 @@ def Decoupage_Trame_Station(ligne):
 			donneesTrame.append("pres="+str(pressionDec))
 
 		if (ligne[i] == "D"):
-			directionVent = ligne[i+1:i+3]
+			directionVent = ligne[i+1:i+2]
 			directionVentDec = int(directionVent, 16)
+			directionVentDec = ConversionDirectionVent(directionVentDec)
+			print directionVentDec
 			donneesTrame.append("dirv="+str(directionVentDec))
 
 	File_WriteLog(pathLog, 2, DataEmpty)
@@ -159,7 +186,7 @@ def Gestion_Trame(ligne):
 	if typeEmetteur == "01" :
 		adresseMac = ligne[2:15]
 		donneesTrame=Decoupage_Trame_Station(ligne)
-		requetePHP=Def_Trame_PHP(adresseMac,typeEmetteur,donneesTrame)
+		requetePHP=Def_Trame_PHP(adresseMac,donneesTrame)
 	elif typeEmetteur == "02" :
 		adresseMacRucheInterne = ligne[2:14]
 		adresseMacRucheExterne = ligne[16:28]
