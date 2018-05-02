@@ -47,6 +47,10 @@ def File_WriteLog(path, code, data):
 			print fichier.write("Trame SPI : " + data +"\n")
 		elif (code == 6):
 			print fichier.write("Trame PHP : " + data +"\n")
+		elif (code == 7):
+			print fichier.write("Données enregistrées sur le serveur. \n")
+		elif (code == 8):
+			print fichier.write("!!!!!! Erreur : données non enregistrées sur le serveur !!!!!! \n")
 
 def File_Read(fichier):
 	ligneLue = fichier.readline()

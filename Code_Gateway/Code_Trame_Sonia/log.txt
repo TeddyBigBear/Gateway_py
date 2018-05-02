@@ -1,55 +1,44 @@
-2018-02-17 08:58:08.685874 : Trame SPI : 025EFF56A2AFFF035EFF56A2AF1501B66T2805H24M10V90C1111N01P12
+2018-05-02 14:15:26.682767 : Trame SPI : 015EFF56A2AF1501U96S1ETE74H60L30VFFP340RA2X5
 
-2018-02-17 08:58:08.686072 : Decoupage OK
-2018-02-17 08:58:08.687583 : Decoupage OK
-2018-02-17 08:58:08.687992 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AFFF&date=2018-02-17&heure=08:58:08.687892&type=I&vbat=10.2&temp_capteur=1024.5&hygro_capteur=36&temp_balance=16&vib=144&co2=4369&nour=1
-2018-02-17 08:58:08.688125 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AF15&date=2018-02-17&heure=08:58:08.688102&type=E&masse=18
-2018-02-17 08:58:08.688607 : Trame supprimée du buffer
-2018-02-17 08:59:03.898878 : Trame SPI : 025EFF56A2AFFF035EFF56A2AF1501B66T2805H24M10V90C1111N01P12
+2018-05-02 14:15:26.683171 : Decoupage OK
+2018-05-02 14:15:26.684988 : Trame PHP : http://vps503149.ovh.net/~ruche/script_gateway.php?mac=5EFF56A2AF150&date=2018-05-02&heure=14:15:26.684910&type=M&vbat=15.0&sol=120030&temp_capteur=-39.6&hygro_capteur=96&pluvio=13.4112&vent_vit_max=255&pres=1632&vent=162&dirv=112.5
+2018-05-02 14:15:26.685878 : Trame supprimée du buffer
+2018-05-02 14:15:27.952557 : Trame SPI : 015EFF56A2AF1501U96S1ETE74H60L30VFFP340RA2X5
 
-2018-02-17 08:59:03.899068 : Decoupage OK
-2018-02-17 08:59:03.900725 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AFFF&date=2018-02-17&heure=08:59:03.900664&type=I&vbat=10.2&temp_capteur=1024.5&hygro_capteur=36&temp_balance=16&vib=144&co2=4369&nour=1
-2018-02-17 08:59:03.900945 : Decoupage OK
-2018-02-17 08:59:03.901173 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AF15&date=2018-02-17&heure=08:59:03.901137&type=E&masse=18
-2018-02-17 08:59:03.901366 : Trame supprimée du buffer
-2018-02-17 09:00:49.283282 : 
-Trame SPI : 025EFF56A2AFFF035EFF56A2AF1501B66T2805H24M10V90C1111N01P12
-2018-02-17 09:00:49.283455 : Decoupage OK
-2018-02-17 09:00:49.284969 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AFFF&date=2018-02-17&heure=09:00:49.284912&type=I&vbat=10.2&temp_capteur=1024.5&hygro_capteur=36&temp_balance=16&vib=144&co2=4369&nour=1
-2018-02-17 09:00:49.285059 : Decoupage OK
-2018-02-17 09:00:49.285294 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AF15&date=2018-02-17&heure=09:00:49.285252&type=E&masse=18
-2018-02-17 09:00:49.285535 : Trame supprimée du buffer
-2018-02-17 09:02:16.356038 : Trame SPI : 025EFF56A2AFFF035EFF56A2AF1501B66T2805H24M10V90C1111N01P12
+2018-05-02 14:15:27.952850 : Decoupage OK
+2018-05-02 14:15:27.954558 : Trame PHP : http://vps503149.ovh.net/~ruche/script_gateway.php?mac=5EFF56A2AF150&date=2018-05-02&heure=14:15:27.954485&type=M&vbat=15.0&sol=120030&temp_capteur=-39.6&hygro_capteur=96&pluvio=13.4112&vent_vit_max=255&pres=1632&vent=162&dirv=112.5
+2018-05-02 14:15:27.955227 : Trame supprimée du buffer
+2018-05-02 14:24:01.496666 : Trame SPI : 015EFF56A2AF1501U96S1ETE74H60L30VFFP340RA2X5
 
-2018-02-17 09:02:16.356160 : Decoupage OK
-2018-02-17 09:02:34.892574 : Trame SPI : 025EFF56A2AFFF035EFF56A2AF1501B66T2805H24M10V90C1111N01P12
+2018-05-02 14:24:01.497662 : Decoupage OK
+2018-05-02 14:24:01.498708 : Trame PHP : http://vps503149.ovh.net/~ruche/script_gateway.php?mac=5EFF56A2AF150&date=2018-05-02&heure=14:24:01.498523&type=M&vbat=15.0&sol=120030&temp_capteur=-39.6&hygro_capteur=96&pluvio=13.4112&vent_vit_max=255&pres=1632&vent=162&dirv=112.5
+2018-05-02 14:24:01.499840 : Trame supprimée du buffer
+2018-05-02 14:24:28.432950 : Trame SPI : 015EFF56A2AF1501U96S1ETE74H60L30VFFP340RA2X5
 
-2018-02-17 09:02:34.893857 : Decoupage OK
-2018-02-17 09:02:34.894406 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AFFF&date=2018-02-17&heure=09:02:34.894358&type=I&vbat=10.2&temp_capteur=1024.5&hygro_capteur=36&temp_balance=16&vib=144&co2=4369&nour=1
-2018-02-17 09:02:34.894480 : Decoupage OK
-2018-02-17 09:02:34.894864 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AF15&date=2018-02-17&heure=09:02:34.894820&type=E&masse=18
-2018-02-17 09:02:34.895087 : Trame supprimée du buffer
-2018-03-09 16:08:43.930094 : Trame SPI : 025EFF56A2AFFF035EFF56A2AF1501B66T2805H24M10V90C1111N01P12
+2018-05-02 14:24:28.433890 : Decoupage OK
+2018-05-02 14:24:28.434416 : Trame PHP : http://vps503149.ovh.net/~ruche/script_gateway.php?mac=5EFF56A2AF150&date=2018-05-02&heure=14:24:28.434338&type=M&vbat=15.0&sol=120030&temp_capteur=-39.6&hygro_capteur=96&pluvio=13.4112&vent_vit_max=255&pres=1632&vent=162&dirv=112.5
+2018-05-02 14:24:28.434945 : Trame supprimée du buffer
+2018-05-02 14:25:09.922510 : Trame SPI : 015EFF56A2AF1501U96S1ETE74H60L30VFFP340RA2X5
 
-2018-03-09 16:08:43.930684 : Decoupage OK
-2018-03-09 16:08:43.931021 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AFFF&date=2018-03-09&heure=16:08:43.930909&type=I&vbat=10.2&temp_capteur=1024.5&hygro_capteur=36&temp_balance=16&vib=144&co2=4369&nour=1
-2018-03-09 16:08:43.931139 : Decoupage OK
-2018-03-09 16:08:43.931333 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AF15&date=2018-03-09&heure=16:08:43.931304&type=E&masse=18
-2018-03-09 16:08:43.931713 : Trame supprimée du buffer
-2018-03-09 16:09:07.058348 : Trame SPI : 025EFF56A2AFFF035EFF56A2AF1501B66T2805H24M10V90C1111N01P12
+2018-05-02 14:25:09.922867 : Decoupage OK
+2018-05-02 14:25:09.923372 : Trame PHP : http://vps503149.ovh.net/~ruche/script_gateway.php?mac=5EFF56A2AF150&date=2018-05-02&heure=14:25:09.923312&type=M&vbat=15.0&sol=120030&temp_capteur=-39.6&hygro_capteur=96&pluvio=13.4112&vent_vit_max=255&pres=1632&vent=162&dirv=112.5
+2018-05-02 14:25:09.923924 : Trame supprimée du buffer
+2018-05-02 14:25:36.492482 : Trame SPI : 015EFF56A2AF1501U96S1ETE74H60L30VFFP340RA2X5
 
-2018-03-09 16:09:07.058536 : Decoupage OK
-2018-03-09 16:09:07.060219 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AFFF&date=2018-03-09&heure=16:09:07.060147&type=I&vbat=10.2&temp_capteur=1024.5&hygro_capteur=36&temp_balance=16&vib=144&co2=4369&nour=1
-2018-03-09 16:09:07.060389 : Decoupage OK
-2018-03-09 16:09:07.060909 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AF15&date=2018-03-09&heure=16:09:07.060858&type=E&masse=18
-2018-03-09 16:09:07.061161 : Trame supprimée du buffer
-2018-03-09 16:16:09.899867 : Trame SPI : 015EFF56A2AF1501B66S50T21H20E3V120P10D3
-
-2018-03-09 16:25:58.252278 : Trame SPI : 015EFF56A2AF1501B66S50T2805H20E30V120P1000D3
-
-2018-03-09 16:25:58.252525 : Decoupage OK
-2018-03-09 16:26:50.339467 : Trame SPI : 015EFF56A2AF1501B66S50T2805H20E30V120P1000D3
-
-2018-03-09 16:26:50.339784 : Decoupage OK
-2018-03-09 16:26:50.340075 : Trame PHP : http://wwww.xxx.xxx/add.php?mac=5EFF56A2AF150&date=2018-03-09&heure=16:26:50.340007&type=M&vbat=10.2&sol=120080&temp_capteur=1024.5&hygro_capteur=32&pluvio=13.4112&vent=288&pres=4896&dirv=67.5
-2018-03-09 16:26:50.341245 : Trame supprimée du buffer
+2018-05-02 14:25:36.492658 : Decoupage OK
+2018-05-02 14:25:36.494429 : Trame PHP : http://vps503149.ovh.net/~ruche/script_gateway.php?mac=5EFF56A2AF150&date=2018-05-02&heure=14:25:36.494317&type=M&vbat=15.0&sol=120030&temp_capteur=-39.6&hygro_capteur=96&pluvio=13.4112&vent_vit_max=255&pres=1632&vent=162&dirv=112.5
+2018-05-02 14:25:36.495102 : Trame supprimée du buffer
+2018-05-02 14:26:42.666508 : Trame SPI : 015EFF56A2AF1501U96S1ETE74H60L30VFFP340RA2X5
+2018-05-02 14:26:42.667080 : Decoupage OK
+2018-05-02 14:26:42.667730 : Trame PHP : http://vps503149.ovh.net/~ruche/script_gateway.php?mac=5EFF56A2AF150&date=2018-05-02&heure=14:26:42.667654&type=M&vbat=15.0&sol=120030&temp_capteur=-39.6&hygro_capteur=96&pluvio=13.4112&vent_vit_max=255&pres=1632&vent=162&dirv=112.5
+2018-05-02 14:26:42.668037 : Trame supprimée du buffer
+2018-05-02 14:26:43.556984 : Trame SPI : 
+2018-05-02 14:26:43.557270 : Trame supprimée du buffer
+2018-05-02 14:30:04.606545 : Trame SPI : 
+2018-05-02 14:30:04.606765 : Trame supprimée du buffer
+2018-05-02 14:30:26.865838 : Trame SPI : 
+2018-05-02 14:30:26.866066 : Trame supprimée du buffer
+2018-05-02 14:30:26.866284 : !!!!!! Erreur : données non enregistrées sur le serveur !!!!!! 
+2018-05-02 14:30:28.083654 : Trame SPI : 
+2018-05-02 14:30:28.084522 : Trame supprimée du buffer
+2018-05-02 14:30:28.085926 : Données enregistrées sur le serveur. 
